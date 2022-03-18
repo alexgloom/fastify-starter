@@ -2,27 +2,24 @@
   "name": "fastify-starter",
   "private": true,
   "type": "module",
-  "module": "es2020",
+  "module": "index.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "tsc && rollup -c",
-    "dev": "rollup -c -w",
+    "start": "NODE_ENV=production node index.js",
+    "build": "NODE_ENV=production vite build",
+    "dev": "node --enable-source-maps index.js",
+    "dev:inspect": "node --inspect --enable-source-maps index.js",
     "lint": "eslint src/ --fix"
   },
   "devDependencies": {
-    "@rollup/plugin-run": "^2.1.0",
     "@types/node": "^17.0.21",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
-    "esbuild": "^0.14.27",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
-    "pino-pretty": "^7.5.4",
     "prettier": "^2.6.0",
-    "rollup": "^2.70.1",
-    "rollup-plugin-esbuild": "^4.8.2",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "vite": "^2.8.6"
   },
   "dependencies": {
     "fastify": "^3.27.4"
