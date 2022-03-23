@@ -1,4 +1,6 @@
-const { NODE_ENV = "development", PORT = 3000 } = process.env;
+import { env } from "node:process";
+
+const { NODE_ENV = "development", PORT = 3000 } = env;
 console.time("Start");
 
 /** @type {string} */
