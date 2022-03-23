@@ -8,7 +8,7 @@ if (NODE_ENV === "production") {
   const { app } = await import("./dist/index.js");
   address = await app.listen(PORT);
 } else {
-  const { once } = await import("events");
+  const { once } = await import("node:events");
   const { createServer } = await import("vite");
   const devServer = await createServer({ server: { middlewareMode: "ssr" } });
 
@@ -19,7 +19,6 @@ if (NODE_ENV === "production") {
         const { app } = await devServer.ssrLoadModule("./src/index.ts");
         await app.ready();
         app.routing(req, res);
-        next();
       } catch (err) {
         return next(err);
       }
